@@ -2,6 +2,7 @@
   "name": "ashishcode",
   "version": "1.0.0",
   "description": "app to deploy",
+  "type": "commonjs",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
