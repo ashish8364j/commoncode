@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors')
+const path = require('path')
 //cookieParser used for acces cookie from user browser and set cookie(perform crud operation)
 const cookieParser = require('cookie-parser');
 
@@ -12,6 +13,12 @@ app.use(cors({
 //when data come in the form of json
 //json form data ki limit kya hai = 16 kb
 app.use(express.json({limit:`${process.env.DATA_LIMIT}`}))
+
+//setting a view path
+app.set('view engine', 'ejs');
+const viewPath = path.join(process.cwd, 'src/viewfolder');
+console.log(viewPath);
+app.set('views', viewPath);
 
 //when data come from the url
 //extended use for nexted object
@@ -27,6 +34,5 @@ const userRouter = require('../src/routes/user.routes.js')
 
 //routes declaration
 app.use('/api/v1/users',userRouter)
-
 
 module.exports = app ;
