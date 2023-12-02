@@ -12,7 +12,7 @@ const sendVerifyEmail = async (email) =>{
             requireTLS:true,
             auth: {
               user: 'emailforpdfshare@gmail.com',
-              pass: 'Ashish@1234'
+              pass: 'bjtmrmxlkgakkeut'
             }
           });
         //// In-memory storage for OTPs (replace this with a database in a production scenario)
