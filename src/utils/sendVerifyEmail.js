@@ -5,8 +5,11 @@ const app = express();
 const sendVerifyEmail = async (email) =>{
     try{
         // Configure Nodemailer - replace with your email provider settings
-        const transporter = nodemailer.createTransport({
-            service: 'ashishsmtptest',
+        const transporter = await nodemailer.createTransport({
+            host:'smtp.gmail.com',
+            port:587,
+            secure:false,
+            requireTLS:true,
             auth: {
               user: 'emailforpdfshare@gmail.com',
               pass: 'Ashish@1234'
@@ -15,7 +18,7 @@ const sendVerifyEmail = async (email) =>{
         //// In-memory storage for OTPs (replace this with a database in a production scenario)
         //generate a otp
 
-        const sendingOtp = function generateOTP() {
+        const sendingOtp = await function generateOTP() {
             return Math.floor(100000 + Math.random() * 900000);
           }
           console.log(sendingOtp);
@@ -27,10 +30,9 @@ const sendVerifyEmail = async (email) =>{
             text: `Your OTP for email verification is: ${sendingOtp}`
           };
 
-          transporter.sendMail(mailOptions, (error, info) => {
+          await transporter.sendMail(mailOptions, (error, info) => {
             if (error) {
               console.error(error);
-              res.status(500).send('Failed to send OTP');
             } else {
               console.log('Email sent: ' + info.response);
             }
