@@ -34,6 +34,6 @@ app.use(cookieParser())
 const userRouter = require('../src/routes/user.routes.js')
 
 //routes declaration
-app.use('/ok',userRouter)
+app.use('',userRouter)
 
 module.exports = app ;

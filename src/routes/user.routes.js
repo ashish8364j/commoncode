@@ -8,10 +8,4 @@ router.route('/register').post(registerUserPost)
 
 
 
-
-
-
-
-
-
 module.exports = router
