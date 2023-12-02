@@ -16,7 +16,6 @@ app.use(express.json({limit:`${process.env.DATA_LIMIT}`}))
 
 //setting a view path
 app.set('view engine', 'ejs');
-console.log(viewPath);
 console.log(process.cwd());
 const viewPath = path.join(process.cwd(), 'src' , 'viewfolder');
 console.log(viewPath);
@@ -35,6 +34,6 @@ app.use(cookieParser())
 const userRouter = require('../src/routes/user.routes.js')
 
 //routes declaration
-app.use('/api/v1/users',userRouter)
+app.use('/ok',userRouter)
 
 module.exports = app ;

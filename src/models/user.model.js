@@ -31,8 +31,7 @@ const userSchema = new mongoose.Schema({
     type: Date
   },
   profilePicture: {
-    type: String , // You can store the URL or file path of the profile picture
-    required : true 
+    type: String , // You can store the URL or file path of the profile picture 
   },
   watchHistory:[
     {
