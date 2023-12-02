@@ -1,6 +1,6 @@
 const express = require('express');
-const cors = require('cors')
-const path = require('path')
+const cors = require('cors');
+const path = require('path');
 //cookieParser used for acces cookie from user browser and set cookie(perform crud operation)
 const cookieParser = require('cookie-parser');
 
@@ -16,7 +16,7 @@ app.use(express.json({limit:`${process.env.DATA_LIMIT}`}))
 
 //setting a view path
 app.set('view engine', 'ejs');
-const viewPath = path.join(process.cwd, 'src/viewfolder');
+const viewPath = path.join(process.cwd, 'src' , 'viewfolder');
 console.log(viewPath);
 app.set('views', viewPath);
 
