@@ -16,7 +16,9 @@ app.use(express.json({limit:`${process.env.DATA_LIMIT}`}))
 
 //setting a view path
 app.set('view engine', 'ejs');
-const viewPath = path.join(process.cwd, 'src' , 'viewfolder');
+console.log(viewPath);
+console.log(process.cwd());
+const viewPath = path.join(process.cwd(), 'src' , 'viewfolder');
 console.log(viewPath);
 app.set('views', viewPath);
 
