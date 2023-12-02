@@ -4,7 +4,7 @@ const registerUserPost = require('../controllers/registeruserpost.js')
 const router = express.Router()
 
 router.route('/register').get(registerUser)
-router.route('/register').post(registerUserPost)
+router.route('/verifyotp').get(registerUserPost)
 
 
 

@@ -17,10 +17,10 @@ const sendVerifyEmail = async (email) =>{
           });
         //// In-memory storage for OTPs (replace this with a database in a production scenario)
         //generate a otp
-
-        const sendingOtp = await function generateOTP() {
+        function generateOTP() {
             return Math.floor(100000 + Math.random() * 900000);
           }
+          sendingOtp = generateOTP()
           console.log(sendingOtp);
 
           const mailOptions = {
@@ -37,7 +37,7 @@ const sendVerifyEmail = async (email) =>{
               console.log('Email sent: ' + info.response);
             }
           });
-
+          return sendingOtp ;
     }catch(error){
         console.log('ERR',error);
     }

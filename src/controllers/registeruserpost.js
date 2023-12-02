@@ -5,9 +5,9 @@ const sendVerifyEmail = require('../utils/sendVerifyEmail.js')
 const asyncHandler = require('../utils/asyncHandler.js')
 
 const registerUserPost = asyncHandler ( async(req,res,next) =>{
-    console.log(req.body);
-    const {name,email,password} = req.body ;
-    sendVerifyEmail(email)
+    console.log(req.params.email);
+    const a = await sendVerifyEmail(req.params.email)
+    console.log(a);
     res.send('emai sent')
 })
 
