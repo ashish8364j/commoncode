@@ -1,15 +1,15 @@
 const express = require('express');
 const nodemailer = require('nodemailer');
 const app = express();
-const sendVerifyEmail = require('../utils/sendVerifyEmail.js')
-const asyncHandler = require('../utils/asyncHandler.js')
+const sendVerifyEmail = require('../utils/sendVerifyEmail.js');
+const asyncHandler = require('../utils/asyncHandler.js');
+const userSchema = require('../models/user.model.js');
 
 const registerUserPost = asyncHandler ( async(req,res,next) =>{
-    console.log(req.params.email);
-    const a = await sendVerifyEmail(req.params.email)
-    console.log(a);
-    res.send('emai sent')
-})
-
-
-module.exports = registerUserPost
+    const user_Data = await userSchema.create(req.query);
+    console.log(user_Data);
+    console.log(user_Data._id);
+    let a = await sendVerifyEmail(req.query.email,user_Data._id)
+    res.render('verifyemail.ejs')
+});
+module.exports = registerUserPost  ;

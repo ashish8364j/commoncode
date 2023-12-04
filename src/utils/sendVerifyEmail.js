@@ -2,7 +2,7 @@ const express = require('express');
 const nodemailer = require('nodemailer');
 const app = express();
 
-const sendVerifyEmail = async (email) =>{
+const sendVerifyEmail = async (email,userId) =>{
     try{
         // Configure Nodemailer - replace with your email provider settings
         const transporter = await nodemailer.createTransport({
@@ -17,17 +17,11 @@ const sendVerifyEmail = async (email) =>{
           });
         //// In-memory storage for OTPs (replace this with a database in a production scenario)
         //generate a otp
-        function generateOTP() {
-            return Math.floor(100000 + Math.random() * 900000);
-          }
-          sendingOtp = generateOTP()
-          console.log(sendingOtp);
-
           const mailOptions = {
             from: 'emailforpdfshare@gmail.com',
             to: email,
-            subject: 'Verification OTP',
-            text: `Your OTP for email verification is: ${sendingOtp}`
+            subject: 'Verification URL',
+            html: '<h3>hi please click here <a href="http://localhost:8000/varify?id='+userId+'">click</a> to varify</h3>'
           };
 
           await transporter.sendMail(mailOptions, (error, info) => {
@@ -37,7 +31,6 @@ const sendVerifyEmail = async (email) =>{
               console.log('Email sent: ' + info.response);
             }
           });
-          return sendingOtp ;
     }catch(error){
         console.log('ERR',error);
     }
