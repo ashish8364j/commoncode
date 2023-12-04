@@ -21,7 +21,7 @@ const sendVerifyEmail = async (email,userId) =>{
             from: 'emailforpdfshare@gmail.com',
             to: email,
             subject: 'Verification URL',
-            html: '<h3>hi please click here <a href="http://localhost:8000/varify?id='+userId+'">click</a> to varify</h3>'
+            html: '<h3>hi please click here <a href="http://localhost:8000/login?id='+userId+'">click</a> to varify</h3>'
           };
 
           await transporter.sendMail(mailOptions, (error, info) => {
