@@ -1,1 +1,1 @@
-const defaultDataSave = require('./default.js')
+DB_NAME = example

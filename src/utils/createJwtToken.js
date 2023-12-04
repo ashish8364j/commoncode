@@ -1,4 +1,5 @@
 const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY ;
+console.log(JWT_SECRET_KEY);
 const jwt = require('jsonwebtoken');
 const email = 'ashishsingh822003@gmail.com';
 const userId = 'sfjknhjrkengjr' ;

@@ -5,6 +5,7 @@ const connectDb = require('./db/dbconnect.js');
 
 port = process.env.PORT || 2000
 url = process.env.MONGODB_URI
+console.log(url);
 //asynchronous method on complete return a promise
 connectDb(url)
 .then(()=>{
